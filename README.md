@@ -6,4 +6,4 @@ This app implements Recyclerview with following features:
 - Data Model Class and ArrayList
 
 
-![(https://user-images.githubusercontent.com/109585801/230356858-bad405a5-3a59-48a0-87c5-9d94d7b707e6.png)
+![screenshot](https://user-images.githubusercontent.com/109585801/230357058-ce314093-71ed-4d8a-a363-0e84eb4ca705.png)
