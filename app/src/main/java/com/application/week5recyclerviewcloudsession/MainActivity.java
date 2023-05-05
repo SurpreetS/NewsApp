@@ -1,61 +1,37 @@
+
+/*
+                Name = Surpreet singh
+                Student Id = 218663803
+                Unit = SIT305-Task5.1
+*/
+
+
+
 package com.application.week5recyclerviewcloudsession;
 
+// Import classes from libraries
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
-import android.view.View;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-import java.util.ArrayList;
-
+// MainActivity class definition
 public class MainActivity extends AppCompatActivity {
 
-    RecyclerView mRecyclerView;
-    RecyclerView.LayoutManager layoutManager;
 
-    ArrayList<MyDataModel> personsList;
 
-    MyAdapter myAdapter;
-
-    FloatingActionButton floatingActionButton;
-
+    // Called when the activity is starting
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main);// Set the layout for the activity
 
-        mRecyclerView = findViewById(R.id.recyclerView);
-        floatingActionButton = findViewById(R.id.floatingActionButton);
-
-        personsList = new ArrayList<>();
-        personsList.add(new MyDataModel("Name 1", "This is description 1", R.drawable.ic_action_name));
-        personsList.add(new MyDataModel("Name 2", "This is description 2",R.drawable.ic_action_name));
-        personsList.add(new MyDataModel("Name 3", "This is description 3",R.drawable.ic_action_name));
-        personsList.add(new MyDataModel("Name 4", "This is description 4",R.drawable.ic_action_name));
-        personsList.add(new MyDataModel("Name 5", "This is description 5",R.drawable.ic_action_name));
-        personsList.add(new MyDataModel("Name 6", "This is description 6",R.drawable.ic_action_name));
-
-
-        layoutManager = new LinearLayoutManager(this);
-        myAdapter = new MyAdapter(this, personsList);
-
-        mRecyclerView.setAdapter(myAdapter);
-        mRecyclerView.setLayoutManager(layoutManager);
-
-        floatingActionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                personsList.add(new MyDataModel("Added Name", "This is description 1",R.drawable.ic_action_name));
-                mRecyclerView.getAdapter().notifyItemInserted(personsList.size());
-                mRecyclerView.smoothScrollToPosition(personsList.size());
-
-
-            }
-        });
-
+        // Create a new instance of MainFragment
+        Fragment fragment = MainFragment.newInstance();
+        // Begin a transaction to replace the content of the activity with the fragment
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.abcd,fragment,"Main Fragment");
+        transaction.commit(); // Commit the transaction and replace the content
 
     }
 
